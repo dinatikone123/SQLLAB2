@@ -54,4 +54,27 @@ Add SupplierID int,
 add constraint fksupplier
 foreign key (SupplierID) references Supplier(SupplierID);
 
+use StoreManagement;
+show create table Orders;
+show index from Orders;
+alter table Orders
+drop column Employee_ID;
+
+alter table Orders
+drop foreign key Orders_ibfk_2;
+
+show create table orders;
+CREATE TABLE Payment (
+    PaymentID INT PRIMARY KEY,
+    OrderID INT,
+    PaymentDate DATE,
+    PaymentMethod VARCHAR(20),
+    Amount DECIMAL(10,2),
+    PaymentStatus VARCHAR(20),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+);
+
+
+
+
 
